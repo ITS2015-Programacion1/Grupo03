@@ -14,6 +14,8 @@ intro.reproducir(repetir=True)
 def iniciar_juego():
 	menu.eliminar()
 	intro.detener()
+	fondo.eliminar()
+	fondo2=pilas.fondos.Pasto()
 def salir_del_juego():
 	exit()
 

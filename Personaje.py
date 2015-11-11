@@ -14,14 +14,14 @@ class JohnCena(pilasengine.actores.Actor):
     def actualizar(self):
         if pilas.control.abajo:
             self.imagen.avanzar()
-            self.y -= 2
+            self.y -=2
             self.rotacion=180
             self.espejado = True
 
         if pilas.control.arriba:
             self.imagen.avanzar()
             self.rotacion=0
-            self.y += 2
+            self.y +=2
             self.espejado = False
 
         if pilas.control.derecha:
@@ -45,12 +45,11 @@ class JohnCena(pilasengine.actores.Actor):
        	
        	if pilas.control.derecha and pilas.control.abajo:
        		self.rotacion=225
-
-fondo=pilas.fondos.Pasto()
+          
 pilas.actores.vincular(JohnCena)
 actor = pilas.actores.JohnCena()
 
-actor.escala=.15
+actor.escala=.25
 
 
 

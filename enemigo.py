@@ -5,7 +5,7 @@ pilas = pilasengine.iniciar()
 
 class enemigo(pilasengine.actores.Actor):
     def iniciar(self):
-        self.imagen ="John_Cena_Completo.png"
+        self.imagen ="Enemigo.png"
         self.direccion=-1
         self.rotacion=90
 
@@ -23,4 +23,3 @@ pilas.actores.vincular(enemigo)
 actor = pilas.actores.enemigo()
 
 actor.escala=.25
-pilas.ejecutar()

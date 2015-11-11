@@ -7,7 +7,7 @@ pilas = pilasengine.iniciar()
 
 class JohnCena(pilasengine.actores.Actor):
 
-    def iniciar(self):
+    def iniciar_personaje(self):
         self.grilla = pilas.imagenes.cargar_grilla("John_Cena_Completo.png")
         self.imagen = self.grilla
        

@@ -10,6 +10,7 @@ fondo.definir_escala(3)
 sonido=pilas.actores.Sonido()
 intro = pilas.musica.cargar("mememe.mp3")
 intro.reproducir(repetir=True)
+
 class Menu(pilasengine.actores.Menu):
 
 	def iniciar_juego():
@@ -20,7 +21,7 @@ class Menu(pilasengine.actores.Menu):
 		pilas.fisica.eliminar_techo()
 		pilas.fisica.eliminar_suelo()
 		pilas.fisica.eliminar_paredes()
-		fondo= pilas.fondos.Fondo('Fondo.png')
+		fondo = pilas.fondos.Fondo('Fondo.png')
 
 		class JohnCena(pilasengine.actores.Actor):
 
@@ -66,7 +67,7 @@ class Menu(pilasengine.actores.Menu):
 			    
 				if pilas.control.derecha and pilas.control.abajo:
 					self.rotacion=225
-          
+
 		fisica_principal = pilas.fisica.Rectangulo(0,0,600,300,dinamica=False)
 		pilas.actores.vincular(JohnCena)
 		actor = pilas.actores.JohnCena()
@@ -74,26 +75,27 @@ class Menu(pilasengine.actores.Menu):
 		actor.escala=0.1
 
 		class Enemigo(pilasengine.actores.Actor):
-		    def iniciar(self):
-		        self.imagen ="Enemigo.png"
-		        self.direccion=-1
-		        self.rotacion=90
 
-		    def actualizar(self):
-		        #Funcion que permite sel movimiento de el enemigo
-		        if self.x <= -300:
-		            self.direccion=1
-		            self.rotacion=-90
-		        if self.x >= 300:
-		            self.direccion=-1
-		            self.rotacion=90
-		        self.x+=self.direccion * 2.5
-		         
+			def iniciar(self):
+				self.imagen ="Enemigo.png"
+				self.direccion=-1
+				self.rotacion=90
+
+				def actualizar(self):
+				#Funcion que permite sel movimiento de el enemigo
+					if self.x <= -300:
+						self.direccion=1
+						self.rotacion=-90
+					if self.x >= 300:
+						self.direccion=-1
+						self.rotacion=90
+						self.x+=self.direccion * 2.5
+
+		fisica = pilas.fisica.Rectangulo(0,0,600,300,dinamica=False)
 		pilas.actores.vincular(Enemigo)
-		actor = pilas.actores.Enemigo()
-
-		actor.escala=0.1
-
+		Enemigo = pilas.actores.Enemigo()
+		Enemigo.aprender(pilas.habilidades.Imitar,fisica)
+		Enemigo.escala=0.1
 	def Ayuda():
 		fondo.eliminar()
 		fondo3 = pilas.fondos.Fondo()
@@ -118,5 +120,5 @@ class Menu(pilasengine.actores.Menu):
             	('Ayuda', Ayuda),
             	('Salir', salir_del_juego),
         	])
-
+ 
 pilas.ejecutar()

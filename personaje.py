@@ -6,6 +6,10 @@ from pilasengine.habilidades import Habilidad
 pilas = pilasengine.iniciar()
 pilas.fisica.gravedad_x=0
 pilas.fisica.gravedad_y=0
+mapa = pilas.actores.MapaTiled("mapa.tmx")
+pilas.fisica.eliminar_techo()
+pilas.fisica.eliminar_suelo()
+pilas.fisica.eliminar_paredes()
 
 class JohnCena(pilasengine.actores.Actor):
 
@@ -60,7 +64,6 @@ fisica_principal = pilas.fisica.Rectangulo(0,0,600,300,dinamica=False)
 pilas.actores.vincular(JohnCena)
 actor = pilas.actores.JohnCena()
 actor.aprender(pilas.habilidades.Imitar,fisica_principal)
-
 actor.escala=0.1
 
 

@@ -20,7 +20,7 @@ class Menu(pilasengine.actores.Menu):
 		pilas.fisica.eliminar_techo()
 		pilas.fisica.eliminar_suelo()
 		pilas.fisica.eliminar_paredes()
-		fondo=pilas.fondos.Pasto()
+		fondo= pilas.fondos.Fondo('Fondo.png')
 
 		class JohnCena(pilasengine.actores.Actor):
 

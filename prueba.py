@@ -1,4 +1,4 @@
-4# -*- encoding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 import pilasengine
 
 pilas = pilasengine.iniciar(alto=768, ancho=1366)
@@ -23,7 +23,7 @@ class Menu(pilasengine.escenas.Escena):
 
 class Puerta(pilasengine.actores.Actor):
     def iniciar(self):
-        self.imagen="puerta.png"
+        self.imagen="exit.png"
 
 
 class Ayuda(pilasengine.escenas.Escena):
@@ -85,14 +85,14 @@ class Juego(pilasengine.escenas.Escena):
         enemigo4.escala=0.2
         enemigo5.escala=0.2
         enemigo6.escala=0.2
-        puerta.escala=0.5
-        puerta1.escala=0.5
+        puerta.escala=0.2
+        puerta1.escala=0.2
 
         llave.x=-1020
         llave.y=-620
         puerta.x=-145
-        puerta.y=-560
-        puerta1.x=-145
+        puerta.y=-545
+        puerta1.x=-2000
         puerta1.y=-700
 
         llave.radio_de_colision=40
@@ -113,7 +113,7 @@ class Juego(pilasengine.escenas.Escena):
         def coger_llave(actor, llave, puerta1=puerta1):
             llave.eliminar()
             pilas.avisar("Nuevo objeto encontrado: Llave")
-            puerta1.y=-560
+            puerta1.y=-545
         def abrir_puerta(actor, puerta):
             puerta.eliminar()
             pilas.avisar("Necesitas la llave para escapar")
